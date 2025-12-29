@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { PuzzleData, getWordCells } from '@/lib/wordSearchGenerator';
 import { cn } from '@/lib/utils';
 
@@ -13,42 +13,48 @@ export const WordSearchGrid: React.FC<WordSearchGridProps> = ({
   showAnswers = false,
   className,
 }) => {
-  const highlightedCells = new Set<string>();
-
-  if (showAnswers) {
-    puzzle.placements.forEach((placement) => {
-      const cells = getWordCells(placement);
-      cells.forEach(([row, col]) => {
-        highlightedCells.add(`${row}-${col}`);
+  const highlightedCells = useMemo(() => {
+    const cells = new Set<string>();
+    if (showAnswers) {
+      puzzle.placements.forEach((placement) => {
+        const wordCells = getWordCells(placement);
+        wordCells.forEach(([row, col]) => {
+          cells.add(`${row}-${col}`);
+        });
       });
-    });
-  }
+    }
+    return cells;
+  }, [puzzle.placements, showAnswers]);
 
   return (
     <div className={cn('puzzle-grid inline-block', className)}>
-      <div
-        className="grid gap-0 border-2 border-puzzle-border rounded-lg overflow-hidden"
-        style={{
-          gridTemplateColumns: `repeat(${puzzle.size}, minmax(0, 1fr))`,
-        }}
-      >
-        {puzzle.grid.map((row, rowIndex) =>
-          row.map((letter, colIndex) => {
-            const isHighlighted = highlightedCells.has(`${rowIndex}-${colIndex}`);
-            return (
-              <div
-                key={`${rowIndex}-${colIndex}`}
-                className={cn(
-                  'puzzle-cell',
-                  isHighlighted && 'found'
-                )}
-              >
-                {letter}
-              </div>
-            );
-          })
-        )}
-      </div>
+      <table className="border-collapse border-2 border-puzzle-border rounded-lg overflow-hidden">
+        <tbody>
+          {puzzle.grid.map((row, rowIndex) => (
+            <tr key={rowIndex}>
+              {row.map((letter, colIndex) => {
+                const cellKey = `${rowIndex}-${colIndex}`;
+                const isHighlighted = highlightedCells.has(cellKey);
+                return (
+                  <td
+                    key={cellKey}
+                    className={cn(
+                      'w-8 h-8 text-center text-lg font-bold uppercase select-none',
+                      'border border-puzzle-border',
+                      'transition-colors duration-200',
+                      isHighlighted 
+                        ? 'bg-primary text-primary-foreground' 
+                        : 'bg-card text-foreground'
+                    )}
+                  >
+                    {letter}
+                  </td>
+                );
+              })}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
