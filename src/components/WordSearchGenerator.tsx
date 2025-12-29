@@ -24,6 +24,8 @@ const GRID_SIZES = [10, 12, 15, 18, 20];
 
 export const WordSearchGenerator: React.FC = () => {
   const [title, setTitle] = useState('');
+  const [schoolName, setSchoolName] = useState('');
+  const [teacherName, setTeacherName] = useState('');
   const [wordsInput, setWordsInput] = useState('');
   const [gridSize, setGridSize] = useState(15);
   const [puzzle, setPuzzle] = useState<PuzzleData | null>(null);
@@ -115,6 +117,34 @@ export const WordSearchGenerator: React.FC = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-5">
+                {/* School Name */}
+                <div className="space-y-2">
+                  <Label htmlFor="school" className="text-sm font-semibold">
+                    Nome da Escola (opcional)
+                  </Label>
+                  <Input
+                    id="school"
+                    placeholder="Ex: Escola Municipal João da Silva"
+                    value={schoolName}
+                    onChange={(e) => setSchoolName(e.target.value)}
+                    className="h-11"
+                  />
+                </div>
+
+                {/* Teacher Name */}
+                <div className="space-y-2">
+                  <Label htmlFor="teacher" className="text-sm font-semibold">
+                    Nome do Professor(a) (opcional)
+                  </Label>
+                  <Input
+                    id="teacher"
+                    placeholder="Ex: Prof. Maria Santos"
+                    value={teacherName}
+                    onChange={(e) => setTeacherName(e.target.value)}
+                    className="h-11"
+                  />
+                </div>
+
                 {/* Title Input */}
                 <div className="space-y-2">
                   <Label htmlFor="title" className="text-sm font-semibold">
@@ -238,11 +268,27 @@ export const WordSearchGenerator: React.FC = () => {
               <div className="space-y-6 animate-fade-in">
                 {/* Printable Area */}
                 <div className="bg-card rounded-xl p-6 md:p-8 shadow-card">
+                  {/* School Header */}
+                  {(schoolName || teacherName) && (
+                    <div className="text-center mb-4 pb-4 border-b border-border">
+                      {schoolName && (
+                        <h2 className="text-lg font-bold text-foreground">
+                          {schoolName}
+                        </h2>
+                      )}
+                      {teacherName && (
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {teacherName}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
                   {/* Title */}
                   {title && (
-                    <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
+                    <h3 className="text-xl font-bold text-center mb-6 text-foreground">
                       {title}
-                    </h2>
+                    </h3>
                   )}
 
                   {/* Grid */}
