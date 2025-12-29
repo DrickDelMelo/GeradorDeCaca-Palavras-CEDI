@@ -6,89 +6,89 @@
 
 @layer base {
   :root {
-    --background: 180 20% 98%;
-    --foreground: 200 25% 15%;
+    --background: 210 20% 98%;
+    --foreground: 203 85% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 200 25% 15%;
+    --card-foreground: 203 85% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 200 25% 15%;
+    --popover-foreground: 203 85% 15%;
 
-    --primary: 168 65% 38%;
+    --primary: 203 85% 26%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 90% 55%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 203 60% 92%;
+    --secondary-foreground: 203 85% 20%;
 
-    --muted: 180 15% 92%;
-    --muted-foreground: 200 15% 45%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 203 30% 45%;
 
-    --accent: 280 60% 65%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 90% 55%;
+    --accent-foreground: 203 85% 15%;
 
     --destructive: 0 72% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 180 20% 85%;
-    --input: 180 20% 85%;
-    --ring: 168 65% 38%;
+    --border: 210 25% 88%;
+    --input: 210 25% 88%;
+    --ring: 203 85% 26%;
 
     --radius: 0.75rem;
 
     /* Custom tokens */
-    --success: 150 60% 45%;
+    --success: 160 60% 40%;
     --success-foreground: 0 0% 100%;
     
     --puzzle-cell: 0 0% 100%;
-    --puzzle-border: 200 20% 70%;
-    --puzzle-highlight: 168 65% 85%;
-    --puzzle-found: 168 65% 38%;
+    --puzzle-border: 203 40% 75%;
+    --puzzle-highlight: 203 60% 90%;
+    --puzzle-found: 203 85% 26%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(168 65% 38%) 0%, hsl(190 60% 45%) 100%);
-    --gradient-warm: linear-gradient(135deg, hsl(35 90% 55%) 0%, hsl(25 85% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(203 85% 26%) 0%, hsl(203 70% 35%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(45 90% 55%) 0%, hsl(35 85% 50%) 100%);
     
-    --shadow-soft: 0 4px 20px -4px hsl(200 25% 15% / 0.1);
-    --shadow-card: 0 8px 30px -8px hsl(200 25% 15% / 0.12);
-    --shadow-elevated: 0 20px 50px -15px hsl(200 25% 15% / 0.15);
+    --shadow-soft: 0 4px 20px -4px hsl(203 85% 15% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(203 85% 15% / 0.1);
+    --shadow-elevated: 0 20px 50px -15px hsl(203 85% 15% / 0.12);
 
     --font-display: 'Nunito', sans-serif;
     --font-mono: 'Space Mono', monospace;
   }
 
   .dark {
-    --background: 200 25% 10%;
-    --foreground: 180 20% 95%;
+    --background: 203 50% 8%;
+    --foreground: 210 20% 95%;
 
-    --card: 200 20% 15%;
-    --card-foreground: 180 20% 95%;
+    --card: 203 45% 12%;
+    --card-foreground: 210 20% 95%;
 
-    --popover: 200 20% 15%;
-    --popover-foreground: 180 20% 95%;
+    --popover: 203 45% 12%;
+    --popover-foreground: 210 20% 95%;
 
-    --primary: 168 65% 45%;
+    --primary: 203 70% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 35 85% 50%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary: 203 40% 20%;
+    --secondary-foreground: 210 20% 95%;
 
-    --muted: 200 20% 20%;
-    --muted-foreground: 180 15% 60%;
+    --muted: 203 35% 18%;
+    --muted-foreground: 210 15% 60%;
 
-    --accent: 280 55% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 80% 50%;
+    --accent-foreground: 203 85% 10%;
 
     --destructive: 0 65% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 200 20% 25%;
-    --input: 200 20% 25%;
-    --ring: 168 65% 45%;
+    --border: 203 35% 22%;
+    --input: 203 35% 22%;
+    --ring: 203 70% 50%;
 
-    --puzzle-cell: 200 20% 18%;
-    --puzzle-border: 200 15% 35%;
-    --puzzle-highlight: 168 50% 25%;
-    --puzzle-found: 168 65% 45%;
+    --puzzle-cell: 203 40% 15%;
+    --puzzle-border: 203 30% 30%;
+    --puzzle-highlight: 203 50% 25%;
+    --puzzle-found: 203 70% 50%;
   }
 }
 
